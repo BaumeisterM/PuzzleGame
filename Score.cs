@@ -74,7 +74,7 @@ public class Score
         bool showText = true;
         int blinkRow = Console.CursorTop;
 
-        while (!Console.KeyAvailable) // Läuft, bis eine Taste gedrückt wird
+        while (!Console.KeyAvailable)
         {
             Console.SetCursorPosition(0, blinkRow);
             if (showText)

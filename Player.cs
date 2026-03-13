@@ -7,6 +7,7 @@ public class Player
     private readonly string _datetime;
     private string _name;
     private int _countMove = 0;
+
     public ConsoleKey Up { get; private set; }
     public ConsoleKey Down { get; private set; }
     public ConsoleKey Left { get; private set; }
@@ -47,7 +48,7 @@ public class Player
             }
         }
         _name = ShowWinningMessage();
-        _score.DisplayScore(_name, _countMove, _datetime, _board); // methode noch nicht fertig
+        _score.DisplayScore(_name, _countMove, _datetime, _board);
     }
 
     private void MovePlayer(int rowChange, int columnChange)
@@ -66,7 +67,7 @@ public class Player
 
         while (input.Length < 3)
         {
-            // build screen fill underscore with letters
+            // fill underscore with letters
             string filled = input;
             string display = "      Name: " + filled + (showCursor ? "_" : " ") + new string('_', 2 - input.Length);
 

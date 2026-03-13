@@ -26,3 +26,4 @@ C:\Users\baume\source\repos\A Player's Guide\PuzzleGame\obj\Debug\net10.0\refint
 C:\Users\baume\source\repos\A Player's Guide\PuzzleGame\obj\Debug\net10.0\PuzzleGame.pdb
 C:\Users\baume\source\repos\A Player's Guide\PuzzleGame\obj\Debug\net10.0\PuzzleGame.genruntimeconfig.cache
 C:\Users\baume\source\repos\A Player's Guide\PuzzleGame\obj\Debug\net10.0\ref\PuzzleGame.dll
+C:\Users\baume\source\repos\A Player's Guide\PuzzleGame\obj\Debug\net10.0\PuzzleGame.sourcelink.json
