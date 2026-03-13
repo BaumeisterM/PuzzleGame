@@ -1,0 +1,14 @@
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\bin\Debug\net10.0\Sandbox.exe
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\bin\Debug\net10.0\Sandbox.deps.json
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\bin\Debug\net10.0\Sandbox.runtimeconfig.json
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\bin\Debug\net10.0\Sandbox.dll
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\bin\Debug\net10.0\Sandbox.pdb
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\Sandbox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\Sandbox.AssemblyInfoInputs.cache
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\Sandbox.AssemblyInfo.cs
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\Sandbox.csproj.CoreCompileInputs.cache
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\Sandbox.dll
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\refint\Sandbox.dll
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\Sandbox.pdb
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\Sandbox.genruntimeconfig.cache
+C:\Users\baume\source\repos\A Player's Guide\Sandbox\obj\Debug\net10.0\ref\Sandbox.dll
