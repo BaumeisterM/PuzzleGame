@@ -1,7 +1,6 @@
 ﻿
 using PuzzleGame;
 
-// Simple application startup sequence: show menu, choose difficulty, start player loop
 Console.Title = "Puzzle Game";
 
 Score score = new Score();

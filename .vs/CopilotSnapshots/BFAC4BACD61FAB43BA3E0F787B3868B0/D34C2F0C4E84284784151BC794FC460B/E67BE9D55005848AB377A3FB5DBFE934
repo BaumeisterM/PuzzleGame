@@ -1,9 +1,5 @@
 ﻿namespace PuzzleGame;
 
-/// <summary>
-/// Represents the interactive player controller. Handles input, movement counting
-/// and the end-of-game name entry flow.
-/// </summary>
 public class Player
 {
     private readonly Board _board;
@@ -12,20 +8,14 @@ public class Player
     private string _name;
     private int _countMove = 0;
 
-    // Exposed key bindings (kept for readability / future configurability)
     public ConsoleKey Up { get; private set; }
     public ConsoleKey Down { get; private set; }
     public ConsoleKey Left { get; private set; }
     public ConsoleKey Right { get; private set; }
-
-    /// <summary>
-    /// Number of moves the player made in the current game.
-    /// </summary>
     public int CountMove => _countMove;
 
     public Player(Board board, Score score)
     {
-        // default arrow-key mappings
         Up = ConsoleKey.UpArrow;
         Down = ConsoleKey.DownArrow;
         Left = ConsoleKey.LeftArrow;
@@ -35,26 +25,20 @@ public class Player
         _datetime = DateTime.Now.ToString("dd.MM.yyyy");
     }
 
-    /// <summary>
-    /// Main game loop. Displays the board and processes input until the board is solved.
-    /// </summary>
     public void Move()
     {
         _board.DisplayBoard(_countMove);
-        // Continue until the puzzle is in solved state
         while (!_board.IsSolved)
         {
             var key = Console.ReadKey(true).Key;
 
-            // Translate arrow keys into a row/column delta for the empty tile.
-            // Note: deltas are applied to the empty tile (gap) position inside Board.TryMove.
             (int rowChange, int columnChange) = key switch
             {
                 ConsoleKey.DownArrow => (-1, 0),
                 ConsoleKey.UpArrow => (1, 0),
                 ConsoleKey.RightArrow => (0, -1),
                 ConsoleKey.LeftArrow => (0, 1),
-                _ => (0, 0) // non-move key pressed
+                _ => (0, 0) // if press no valid key
             };
 
             if (rowChange != 0 || columnChange != 0)
@@ -63,44 +47,36 @@ public class Player
                 _board.DisplayBoard(_countMove);
             }
         }
-
-        // When solved, prompt for three-letter name and show score summary
         _name = ShowWinningMessage();
         _score.DisplayScore(_name, _countMove, _datetime, _board);
     }
 
     private void MovePlayer(int rowChange, int columnChange)
     {
-        // TryMove returns true if the move was valid; only then increment the counter
         if (_board.TryMove(rowChange, columnChange))
             _countMove++;
     }
 
-    /// <summary>
-    /// Prompts the player to enter a 3-letter name. Shows a simple blinking cursor
-    /// and accepts only letter characters (converted to upper case).
-    /// </summary>
     public string BlinkInputThreeLetters()
     {
         Console.WriteLine();
         Console.WriteLine();
         Console.CursorVisible = false;
-        string input = string.Empty;
+        string input = "";
         bool showCursor = true;
 
         while (input.Length < 3)
         {
-            // Build the display string: typed letters + blinking cursor + underscores for remaining
+            // fill underscore with letters
             string filled = input;
             string display = "      Name: " + filled + (showCursor ? "_" : " ") + new string('_', 2 - input.Length);
 
             Console.SetCursorPosition(0, Console.CursorTop);
             Console.Write(display);
 
-            // flip cursor visibility for blink effect
             showCursor = !showCursor;
 
-            // Wait up to 500ms (in 100ms chunks) for key input; this lets us animate the blink
+            // Wait 500ms but validate if button was pressed
             for (int i = 0; i < 5; i++)
             {
                 Thread.Sleep(100);
@@ -111,18 +87,14 @@ public class Player
                     {
                         input += char.ToUpper(key.KeyChar);
                     }
-                    break; // proceed to next character or exit if length reached
+                    break;
                 }
             }
         }
-
         Console.CursorVisible = true;
         return input;
     }
 
-    /// <summary>
-    /// Clears the console and prints a winning banner before asking for the player name.
-    /// </summary>
     public string ShowWinningMessage()
     {
         Console.Clear();

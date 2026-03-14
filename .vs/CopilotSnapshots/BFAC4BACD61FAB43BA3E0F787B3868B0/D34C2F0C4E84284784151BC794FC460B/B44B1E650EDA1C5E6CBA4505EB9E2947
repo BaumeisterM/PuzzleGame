@@ -1,9 +1,5 @@
 ﻿namespace PuzzleGame;
 
-/// <summary>
-/// Simple console start menu offering difficulty choices and rendering
-/// a small ascii title banner.
-/// </summary>
 public class StartMenu
 {
     private readonly Score _score;
@@ -13,9 +9,6 @@ public class StartMenu
         _score = score;
     }
 
-    /// <summary>
-    /// Draws the game title / banner to the console.
-    /// </summary>
     public void DisplayStartMenu()
     {
         Console.Clear();
@@ -47,9 +40,6 @@ public class StartMenu
         Console.WriteLine();
     }
 
-    /// <summary>
-    /// Asks the player for a difficulty choice and returns a new Board for the selected size.
-    /// </summary>
     public Board DifficultyChoice()
     {
         Console.Write("     1 = 3x3\n     2 = 4x4\n     3 = 5x5\n     4 = 6x6\n\n     Choose a difficulty:  ");
@@ -62,7 +52,7 @@ public class StartMenu
             "2" => new(4, 4, _score),
             "3" => new(5, 5, _score),
             "4" => new(6, 6, _score),
-            _ => new(3, 3, _score) // Default to 3x3 when input is invalid
+            _ => new(3, 3, _score) //if any other input is done  3x3 is the custom board
         };
     }
 }

@@ -1,7 +1,32 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|c:\\users\\baume\\source\\repos\\a player\u0027s guide\\puzzlegame\\score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|solutionrelative:score.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|c:\\users\\baume\\source\\repos\\a player\u0027s guide\\puzzlegame\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|solutionrelative:board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|c:\\users\\baume\\source\\repos\\a player\u0027s guide\\puzzlegame\\startmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|solutionrelative:startmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|c:\\users\\baume\\source\\repos\\a player\u0027s guide\\puzzlegame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|c:\\users\\baume\\source\\repos\\a player\u0027s guide\\puzzlegame\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|c:\\users\\baume\\source\\repos\\a player\u0027s guide\\puzzlegame\\highscoreentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9C4C5ED-78CC-4C02-2B10-3152A092EB30}|PuzzleGame.csproj|solutionrelative:highscoreentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +34,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 61,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StartMenu.cs",
+              "DocumentMoniker": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\StartMenu.cs",
+              "RelativeDocumentMoniker": "StartMenu.cs",
+              "ToolTip": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\StartMenu.cs",
+              "RelativeToolTip": "StartMenu.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAmwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T10:25:26.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T10:25:25.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Board.cs",
+              "DocumentMoniker": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\Board.cs",
+              "RelativeDocumentMoniker": "Board.cs",
+              "ToolTip": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\Board.cs",
+              "RelativeToolTip": "Board.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAMgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T10:23:16.304Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -18,6 +82,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Score.cs",
+              "DocumentMoniker": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\Score.cs",
+              "RelativeDocumentMoniker": "Score.cs",
+              "ToolTip": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\Score.cs",
+              "RelativeToolTip": "Score.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T10:23:35.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HighscoreEntry.cs",
+              "DocumentMoniker": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\HighscoreEntry.cs",
+              "RelativeDocumentMoniker": "HighscoreEntry.cs",
+              "ToolTip": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\HighscoreEntry.cs",
+              "RelativeToolTip": "HighscoreEntry.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T10:23:32.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\baume\\source\\repos\\A Player\u0027s Guide\\PuzzleGame\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAuwI0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-14T10:16:37.509Z",
+              "EditorCaption": ""
             }
           ]
         },

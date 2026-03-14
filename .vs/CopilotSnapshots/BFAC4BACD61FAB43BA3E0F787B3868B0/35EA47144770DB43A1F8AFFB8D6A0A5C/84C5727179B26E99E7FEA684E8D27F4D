@@ -2,15 +2,8 @@
 
 namespace PuzzleGame;
 
-/// <summary>
-/// Handles saving and displaying high scores for the puzzle boards.
-/// Scores are stored per board size in a JSON file named `score_{rows}x{cols}.json`.
-/// </summary>
 public class Score
 {
-    /// <summary>
-    /// Persist the new score and render the highscore list to the console.
-    /// </summary>
     public void DisplayScore(string name, int moves, string datetime, Board board)
     {
         SaveScore(name, moves, datetime, board);
@@ -25,7 +18,7 @@ public class Score
         Console.WriteLine(@"        |_| |_|___\____|_| |_|____/ \____\___/|_| \_\_____|");
         Console.ResetColor();
 
-        // The filename for the scoreboard depends on the current board size
+        //Display highscorelist
         string filename = $"score_{board.Rows}x{board.Columns}.json";
 
         if (File.Exists(filename))
@@ -39,7 +32,6 @@ public class Score
 
             if (scores != null)
             {
-                // Print each highscore entry in a simple table-like layout
                 foreach (var s in scores)
                     Console.WriteLine($"        {s.Date}    |   {s.Name}    |   {s.Moves} Moves");
             }
@@ -50,9 +42,6 @@ public class Score
         BlinkPressAnyKey();
     }
 
-    /// <summary>
-    /// Add a new entry to the stored highscore list and persist top 10 scores.
-    /// </summary>
     public void SaveScore(string name, int moves, string date, Board board)
     {
         string filename = $"score_{board.Rows}x{board.Columns}.json";
@@ -66,25 +55,19 @@ public class Score
                 string existingJson = File.ReadAllText(filename);
                 scores = JsonSerializer.Deserialize<List<HighscoreEntry>>(existingJson) ?? new List<HighscoreEntry>();
             }
-            catch
-            {
-                // If deserialization fails, continue with an empty list
-            }
+            catch { }
         }
 
         // Add new score
         scores.Add(new HighscoreEntry { Name = name, Moves = moves, Date = date });
 
-        // Keep only the top 10 by fewest moves
-        var sortedScores = scores.OrderBy(s => s.Moves).Take(10).ToList();
+        // sorted highscorelist
+        var sortedScores = scores.OrderBy(s => s.Moves).Take(10).ToList(); // Top 10
 
         string jsonString = JsonSerializer.Serialize(sortedScores, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(filename, jsonString);
     }
 
-    /// <summary>
-    /// Shows a blinking "press any key" prompt until the user presses a key.
-    /// </summary>
     private void BlinkPressAnyKey()
     {
         Console.WriteLine();

@@ -1,8 +1,5 @@
 ﻿namespace PuzzleGame;
 
-/// <summary>
-/// Represents a single entry in the highscore list persisted to disk.
-/// </summary>
 public class HighscoreEntry
 {
     public string Name { get; set; }

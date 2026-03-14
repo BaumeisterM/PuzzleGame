@@ -1,9 +1,5 @@
 ﻿namespace PuzzleGame;
 
-/// <summary>
-/// Represents the sliding puzzle board. Responsible for storing tile state,
-/// shuffling during initialization and validating/making moves.
-/// </summary>
 public class Board
 {
     private readonly Random _rnd = new Random();
@@ -11,17 +7,8 @@ public class Board
     private int _gapRow;
     private int _gapCol;
 
-    /// <summary>Number of rows on the board.</summary>
     public int Rows { get; }
-
-    /// <summary>Number of columns on the board.</summary>
     public int Columns { get; }
-
-    /// <summary>
-    /// Determines whether the current board is in the solved state.
-    /// The solved state expects numbers 1..(Rows*Columns-1) in order and
-    /// the last cell to be the empty slot (0).
-    /// </summary>
     public bool IsSolved
     {
         get
@@ -32,7 +19,7 @@ public class Board
             {
                 for (int j = 0; j < Columns; j++)
                 {
-                    // skip the void last field
+                    // skip void last field
                     if (i == Rows - 1 && j == Columns - 1) continue;
                     int expectedValue = i * Columns + j + 1;
                     if (_board[i, j] != expectedValue) return false;
@@ -42,93 +29,85 @@ public class Board
         }
     }
 
-    /// <summary>
-    /// Construct a new board with given dimensions and prepare a shuffled starting state.
-    /// </summary>
     public Board(int rows, int columns, Score score)
     {
         Rows = rows;
         Columns = columns;
         _board = new int[rows, columns];
 
-        // Fill the board with sequential tile numbers. The last cell is the empty slot (0).
+        // last field is void field (0)
+        _board[rows - 1, columns - 1] = 0;
+        _gapRow = rows - 1;
+        _gapCol = columns - 1;
+
+        // fill the board
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
                 _board[i, j] = i * columns + j + 1;
 
-        _board[rows - 1, columns - 1] = 0;  // void field (empty)
+        _board[rows - 1, columns - 1] = 0;  // void field
         _gapRow = rows - 1;
         _gapCol = columns - 1;
 
-        // Randomize starting state by performing many valid random swaps of the empty slot.
         ShuffleBoard();
     }
 
-    /// <summary>
-    /// Randomly moves the empty tile a number of times to produce a solvable shuffle.
-    /// The algorithm avoids immediately undoing the previous move by tracking the last delta.
-    /// </summary>
     private void ShuffleBoard()
     {
         int lastRowChange = 0;
         int lastColChange = 0;
 
-        // Perform many swaps to mix the puzzle
+        //swaps empty field randomly
         for (int swaps = 0; swaps < 1000; swaps++)
         {
             int rnd = _rnd.Next(0, 4);
 
             (int rowChange, int colChange) = rnd switch
             {
-                0 => (-1, 0), // Up
-                1 => (1, 0),  // Down
-                2 => (0, -1), // Left
-                3 => (0, 1),  // Right
-                _ => (0, 0)
+                0 => (-1, 0),// Up
+                1 => (1, 0), // Down
+                2 => (0, -1),// Left
+                3 => (0, 1), // Right
+                _ => (0, 0)  // Fallback 
             };
 
-            // Prevent immediate backtracking that would undo the previous move
+            // backtracking -- prevent new move from undoing the previous one
+            // example: if last move was Up (-1,0), the direct opposite would be Down (1,0)
             if (rowChange == -lastRowChange && colChange == -lastColChange)
             {
                 swaps--;
                 continue;
             }
 
-            // Only count successful moves
+            // Validate Move
             if (TryMove(rowChange, colChange))
             {
+                // Remind last move
                 lastRowChange = rowChange;
                 lastColChange = colChange;
             }
             else
-            {
-                // Decrement swap counter so invalid choices don't reduce shuffle entropy
+                // Invalid moves don't count;
                 swaps--;
-            }
         }
     }
 
-    /// <summary>
-    /// Attempts to move the empty tile by the specified delta. Returns true if the move
-    /// was in-range and executed.
-    /// </summary>
     public bool TryMove(int rowChange, int colChange)
     {
         int newRow = _gapRow + rowChange;
         int newCol = _gapCol + colChange;
 
-        // If the destination is within board bounds, swap the tiles and update the gap position
+        // Validate new position
         if (IsMoveValid(newRow, newCol))
         {
             SwapPosition(_gapRow, _gapCol, newRow, newCol);
             _gapRow = newRow;
             _gapCol = newCol;
-            return true;
+            return true; // Valid move
         }
-        return false;
+        return false; // Invalid move
     }
 
-    /// <summary>Swap two positions on the board array.</summary>
     private void SwapPosition(int r1, int c1, int r2, int c2)
     {
         int temp = _board[r1, c1];
@@ -136,16 +115,11 @@ public class Board
         _board[r2, c2] = temp;
     }
 
-    /// <summary>Validate whether given coordinates are inside the board.</summary>
-    public bool IsMoveValid(int r, int c)
+    public bool IsMoveValid(int r, int c)   //validate if is in range
     {
         return r >= 0 && r < Rows && c >= 0 && c < Columns;
     }
 
-    /// <summary>
-    /// Renders the board to the console using simple ascii art tiles and colors
-    /// to indicate correctly placed tiles.
-    /// </summary>
     public void DisplayBoard(int moves)
     {
         Console.Clear();
@@ -153,15 +127,14 @@ public class Board
         for (int i = 0; i < Rows; i++)
         {
             Console.Write("\t\t");
-            // top border of tiles
+            // 1.top
             for (int j = 0; j < Columns; j++)
             {
                 DrawSpritePart(i, j, " ┌───────┐ ");
             }
             Console.WriteLine();
-
             Console.Write("\t\t");
-            // middle row with numbers (or blank for empty slot)
+            // 2. mid
             for (int j = 0; j < Columns; j++)
             {
                 int val = _board[i, j];
@@ -169,9 +142,8 @@ public class Board
                 DrawSpritePart(i, j, content);
             }
             Console.WriteLine();
-
             Console.Write("\t\t");
-            // bottom border of tiles
+            // 3. bottom
             for (int j = 0; j < Columns; j++)
             {
                 DrawSpritePart(i, j, " └───────┘ ");
@@ -181,11 +153,7 @@ public class Board
         Console.WriteLine($"\n\t\tMoves: {moves}");
     }
 
-    /// <summary>
-    /// Helper to draw a portion of a tile using color to indicate correctness:
-    /// green when the tile matches its target position, gray otherwise.
-    /// The empty tile is drawn using default color.
-    /// </summary>
+    // helper to color the fields
     private void DrawSpritePart(int row, int col, string part)
     {
         int val = _board[row, col];
